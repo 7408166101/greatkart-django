@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'developersoftware393@gmail.com'
 EMAIL_HOST_PASSWORD = 'mxdh mmvp ldln bgdk'
 EMAIL_USE_TLS = True
+
+PAYPAL_CLIENT_ID = "AXZyq3V9iqm16CncIQ2-ZlFUxIPhcj6CRPvasazpoqv48ujpV6UfSKXWCgSMMHbs5-x0wyuCvhIsjIL-"
+PAYPAL_SECRET_KEY = "EJcAwxeNPBEqsuVRwxdR08sbnvAPLOVRijbMMQUJwDcJRjWBWqE_9h6PES7voB3Gmjbt7YqHUKzo-1-y"
