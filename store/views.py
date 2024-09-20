@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, ReviewRating
+from .models import Product, ReviewRating, ProductGallery
 from category.models import Category
 from carts.views import _cart_id
 from carts.models import CartItem
@@ -54,11 +54,15 @@ def product_detail(request,category_slug, product_slug ):
 
     #Get the review
     reviews = ReviewRating.objects.filter(product_id=single_product.id, status=True)
+
+    # Get the product gallery
+    product_gallery = ProductGallery.objects.filter(product_id = single_product.id)
     context = {
         'single_product': single_product,
         'in_cart': in_cart,
         'orderproduct': orderproduct,
         'reviews':reviews,
+        'product_gallery': product_gallery,
     }
     return render(request, 'store/product_detail.html', context)
 
@@ -97,3 +101,5 @@ def submit_review(request, product_id):
                 data.save()
                 messages.success(request, 'Thank you! Your review has been submited.')
                 return redirect(url)
+
+
